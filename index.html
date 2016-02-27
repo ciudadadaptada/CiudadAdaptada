@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8"/>
+  <title>Ciudad Adaptada</title>
+  <link rel="stylesheet" href="leaflet/leaflet.css">
+  <link rel="stylesheet" href="lrm-valhalla/leaflet.routing.valhalla.css">
+  <link rel="stylesheet" href="src/css/style.css">
+  <script src="leaflet/leaflet.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://mapzen.com/tangram/tangram.min.js"></script>
+  <script src="leaflet-routing-machine/leaflet-routing-machine.js"></script>
+  <script src="lrm-valhalla/lrm-valhalla.js"></script>
+  <script src="src/js/map_wrapper.js"></script>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+</head>
+  <div id="map"></div>
+  <body>
+    <div id="frame-route" class="hidden">
+      <img id="path-icon" src="/CiudadAdaptada/path_icon.png">
+      <img id="current-loc-icon" src="/CiudadAdaptada/images/current_loc.png">
+      <div id="route-box" class="col-xs-12">
+        <input id="route-from" type="text" class="form-control" placeholder="Desde...">
+        <input id="route-to" type="text" class="form-control" placeholder="hasta...">
+      </div>
+      <div>
+        <!--<div class="checkbox">
+          <label>
+            <input id="include-parking" type="checkbox"> Buscar estacionamiento mas cercano
+          </label>
+        </div>-->
+        <div class="checkbox">
+          <label>
+            <input id="avoid-steps" type="checkbox"> Evitar escaleras
+          </label>
+        </div>
+      </div>
+      <div class="text-center">
+        <a id="calculate-route" class="btn btn-default">Ir</a>
+      </div>
+    </div>
+    <div id="frame-search" class="col-md-6 col-lg-4">
+      <div id="search-box">
+        <div style="margin-top:-10px;" class="input-group">Destino:
+          <input type="text" id="search-input" class="form-control" placeholder="Busca un lugar..." value="Alvaro Lopez Nuñez, Caceres">
+          <span class="input-group-btn">
+            <button id="search-btn" style="margin-top:20px;" class="btn btn-default" type="button">Buscar</button>
+          </span>
+        </div><!-- /input-group -->
+      </div>
+      <div class="checkbox">
+        <label>
+          <input id="show-current-pos" type="checkbox">
+          <img src="/CiudadAdaptada/images/current_loc_black.png" alt="">
+          Mostrar posicion actual
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input id="show-accessible-parkings" type="checkbox">
+          <img src="/CiudadAdaptada/images/accesible_marker.png" alt="">
+          Mostrar estacionamientos accesibles
+        </label>
+      </div>
+    </div><!-- /.col-lg-6 -->
+    <div style="position:absolute;margin-left:37.5%;" class="col-md-6 col-lg-4"><img src="/CiudadAdaptada/images/CiudadAdaptada_1.png" height="100" alt=""></div> 
+ <script>
+      AccesibleMap.setup();
+  </script>
+</body>
+</html>
